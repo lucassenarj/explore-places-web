@@ -19,7 +19,7 @@ const Properties = ({ properties }) =>
     </Marker>
   ));
 
-Properties.PropTypes = {
+Properties.propTypes = {
   properties: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
