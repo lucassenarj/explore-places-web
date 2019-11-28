@@ -11,6 +11,7 @@ import { logout } from './../../services/auth';
 import Properties from './components/Properties';
 import Button from "./components/Button";
 import AddProperty from './../AddProperty';
+import Property from './../Property';
 
 const API_TOKEN = 'pk.eyJ1IjoibHVjYXNzZW5hcmoiLCJhIjoiY2szYWZzdWg4MGJ0eTNicWgxa2pibzF5cSJ9.9CYaS2GvgVKB_uC1wQhFOw';
 
@@ -122,11 +123,12 @@ class Map extends Component {
           onViewportChange={viewport => this.setState({ viewport })}
           onViewStateChange={this.updatePropertiesLocalization.bind(this)}
         >
-          {!addActivate && <Properties properties={properties} /> }
+          {!addActivate && <Properties match={match} properties={properties} /> }
         </MapGL>
         {this.renderActions()}
         {this.renderButtonAdd()}
         <ModalRoute path={`${match.url}/properties/add`} parentPath={match.url} component={AddProperty} />
+        <ModalRoute path={`${match.url}/property/:id`} parentPath={match.url} component={Property} />
       </Fragment>
     );
   }
